@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Models\Business as BusinessAlias;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
-use App\Http\Controllers\Controller;
+use app\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +20,14 @@ use App\Http\Controllers\Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('businesses', [BusinessController::class, 'index']);
+Route::get('businesses/{business}', [\App\Models\BusinessController::class, 'show'])->name('businesses.show');
+Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::get('users', [UserController::class, 'index'])->name('users.index');
 
-Route::get('user/{user}', [Controller::class, 'show'])->name('user.show');
-Route::get('users', [Controller::class, 'index'])->name('users.index');
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/', function () {
-    return view('welcome');;
+    return view('welcome');
 })->name('home');

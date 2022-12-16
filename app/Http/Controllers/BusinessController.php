@@ -2,9 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Business;
 use Illuminate\Http\Request;
 
 class BusinessController extends Controller
 {
-    //Businnes::all()
+    public function index()
+    {
+        \DB::connection()->enableQueryLog();
+        $business = Business::where('name','LIKE', '%Jon%')->get();
+        $query = \DB::getQueryLog();
+        dd($query);
+//      $business->delete();
+//      dd($business);
+    }
 }
