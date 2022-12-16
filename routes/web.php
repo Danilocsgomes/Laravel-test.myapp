@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
-use app\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
