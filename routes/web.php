@@ -31,3 +31,30 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+// Processo
+//Route::post('/algumacoisa', function() {
+//    return 'Processando';
+//});
+
+// Atualização
+//Route::put('/algumacoisa', function() {
+//    return 'Atualizado';
+//});
+
+// Processo de atualização para 1 único registro.
+//Route::patch('/algumacoisa', function () {
+//    return 'Atualizado';
+//});
+
+// Processo de exclusão
+//Route::delete('/algumacoisa', function() {
+//    return 'Deletado';
+//});
+
+// Enviar Instruções para o back-end
+//Route::options('/algumacoisa', function() {
+//    return 'Opções';
+//});
+
+Route::post('create', []);
