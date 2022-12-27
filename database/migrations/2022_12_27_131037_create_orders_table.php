@@ -20,6 +20,11 @@ return new class extends Migration
             $table->enum('status', ['Pendente', 'Pago', 'Cancelados', 'Vencido'])->default('Pendente');
             $table->timestamps();
         });
+        //Pivot
+        Schema::create('order_product', function(Blueprint $table){
+            $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('product_id')->constrained('products');
+        });
     }
 
     /**
