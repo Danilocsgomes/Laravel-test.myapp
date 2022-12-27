@@ -85,8 +85,13 @@ class User extends Authenticatable
         );
     }
 
-    public function address()
+    public function addresses()
     {
-        return $this->morphOne(Address::class, 'addresseable');
+        return $this->morphMany(Address::class, 'addresseable');
+    }
+
+    public function orders()
+    {
+        return $this->morphToMany(Order::class, 'model', 'order_has_model', 'order_id');
     }
 }

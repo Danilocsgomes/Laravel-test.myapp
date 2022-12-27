@@ -19,4 +19,9 @@ class Order extends Model
     {
         return $this->belongsToMany(Order::class, 'order_id', 'product_id', 'order_id' );
     }
+
+    public function models()
+    {
+        return $this->morphedByMany(User::class, 'model', 'order_has_model', 'order_id');
+    }
 }
