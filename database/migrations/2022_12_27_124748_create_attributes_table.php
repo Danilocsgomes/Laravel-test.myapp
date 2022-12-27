@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    protected $connection = 'mysql2';
     /**
      * Run the migrations.
      *
@@ -14,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql3')->create('products', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained('categories');
             $table->string('name');
-            $table->double('price', 10, 2);
-            $table->text('description');
-            $table->enum('status', ['Ativo', 'Inativo'])->default('Ativo');
+            $table->double('price');
+            $table->enum('status',['Ativo','Inativo'])->default('Ativo');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('attributes');
     }
 };

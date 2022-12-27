@@ -15,6 +15,11 @@ class Category extends Model
         'status'
     ];
 
+    public function product()
+    {
+       return $this->hasOne(Product::class);
+    }
+
     public function scopeIsActive($query)
     {
         $query->where('status', 'Ativo');
