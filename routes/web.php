@@ -21,10 +21,9 @@ use App\Http\Controllers\Controller;
 |
 */
 Route::get('businesses', [BusinessController::class, 'index']);
-Route::get('businesses/{business}', [\App\Models\BusinessController::class, 'show'])->name('businesses.show');
+Route::get('businesses/{business}', [BusinessController::class, 'show'])->name('businesses.show');
 Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
 Route::get('users', [UserController::class, 'index'])->name('users.index');
-
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
@@ -57,4 +56,24 @@ Route::get('/', function () {
 //    return 'Opções';
 //});
 
-Route::post('create', []);
+//Route::controller()->middleware()->prefix()->group(function(){});
+
+//Route::group([
+//        'controller' => \App\Http\Controllers\HomeController::class,
+//        'middleware' =>'guest',
+//        'prefix' => 'users',
+//        'as' => 'users.'
+//    ],function () {
+//    Route::get('/', 'index')->name('index');
+//    Route::get('create', 'create')->name('create');
+//    Route::post('store',  'store')->name('store');
+//    Route::get('{user}',  'show')->name('show');
+//    Route::get('{user}/edit', 'edit')->name('edit');
+//    Route::put('{user}', 'update')->name('update');
+//    Route::delete('{user}', 'destroy')->name('destroy');
+//});
+
+//Route::resource('users', \App\Http\Controllers\HomeController::class);
+//Route::apiResource('users', \App\Http\Controllers\HomeController::class);
+//Route::singleton('users', \App\Http\Controllers\HomeController::class)->creatable();
+//Route::apiSingleton('users', \App\Http\Controllers\HomeController::class)->creatable();
