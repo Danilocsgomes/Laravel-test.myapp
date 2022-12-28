@@ -31,6 +31,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+//Route::any('/', function() {});
+
+//Route::match(['get', 'post'], 'users',[\App\Http\Controllers\HomeController::class, 'index']);
+
+//Route::view('tela1', 'welcome');
+
 // Processo
 //Route::post('/algumacoisa', function() {
 //    return 'Processando';
@@ -73,7 +79,13 @@ Route::get('/', function () {
 //    Route::delete('{user}', 'destroy')->name('destroy');
 //});
 
-//Route::resource('users', \App\Http\Controllers\HomeController::class);
+//Route::resource('users', \App\Http\Controllers\HomeController::class)->missing(function () {
+//    return redirect()->route('users.index');
+//});
 //Route::apiResource('users', \App\Http\Controllers\HomeController::class);
 //Route::singleton('users', \App\Http\Controllers\HomeController::class)->creatable();
-//Route::apiSingleton('users', \App\Http\Controllers\HomeController::class)->creatable();
+//Route::apiSingleton('users', \App\Http\Controllers\HomeController::class)->except('update');
+
+//Route::fallback(function () {
+//
+//});
