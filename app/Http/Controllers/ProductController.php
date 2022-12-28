@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -32,16 +33,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $data = $request->validate([
-            'name' => 'required',
-            'email' => [
-                'required,
-                unique:users'
-            ]
-        ]);
+        $data = $request->validated();
     }
+
 
     /**
      * Display the specified resource.
