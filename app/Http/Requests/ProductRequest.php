@@ -37,4 +37,12 @@ class ProductRequest extends FormRequest
             'description' => 'sometimes'
         ];
     }
+
+    public function attributes()
+    {
+       return [
+           'price' => 'valor',
+           'document' => 'cpf',
+       ];
+    }
 }

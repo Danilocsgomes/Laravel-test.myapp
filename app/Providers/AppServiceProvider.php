@@ -27,11 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::component(Alert::class, 'alert');
+        Blade::directive('datetime', function($expression) {
+            return "<?php echo Carbon\Carbon::create(($expression))->format('d/m/y H:1'); ?>";
+        });
 
-//        Route::ressourceVerbs([
-//            'create' => 'cadastrar',
-//            'edit' => 'editar'
-//        ]);
+        Blade::if('validateString', function ($expression) {
+            return gettype($expression) == 'string';
+        });
     }
 }
