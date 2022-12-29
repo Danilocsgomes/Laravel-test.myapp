@@ -10,8 +10,11 @@
 @endsection
 
 @section('content')
+    @php
+    $label = 'Nome'
+    @endphp
 
-    <x-input />
+    <x-input type="text" name="name" id="name" :label="$label" />
 
     <x-card>
         <x-slot:header>
@@ -19,4 +22,8 @@
         </x-slot:header>
         Conteúdo do card
     </x-card>
+
+    <x-alert type="error">
+        Deu erro!
+    </x-alert>
 @endsection

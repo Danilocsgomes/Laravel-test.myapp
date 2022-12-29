@@ -1,4 +1,10 @@
+@props([
+    'label'
+])
 <div class="form-group">
-    <label for="name">Nome</label>
-    <input type="text" name="name" id="name" class="form-control is-invalid">
+    <label for="{{$attributes->get('id')}}">{{ $label }}</label>
+    <input {{ $attributes->class(['form-control', 'is-invalid' => $errors->has($attributes->get('name'))]) }} />
+    @error($attributes->get('name'))
+        <x-alert type="error">{{$message}}</x-alert>
+    @enderror
 </div>
