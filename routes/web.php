@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -20,16 +21,22 @@ use App\Http\Controllers\Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('businesses', [BusinessController::class, 'index']);
-Route::get('businesses/{business}', [BusinessController::class, 'show'])->name('businesses.show');
-Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
-Route::get('users', [UserController::class, 'index'])->name('users.index');
-Route::get('posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+//Route::get('businesses', [BusinessController::class, 'index']);
+//Route::get('businesses/{business}', [BusinessController::class, 'show'])->name('businesses.show');
+//Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+//Route::get('users', [UserController::class, 'index'])->name('users.index');
+//Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+//Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [LoginController::class,'index'])->name('home');
+
+
+Route::post('login', [LoginController::class, 'store'])->name('login');
+Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
+
+Route::middleware('auth')->get('/dashboard', function () {
+    return 'dashboard';
+});
 
 //Route::any('/', function() {});
 

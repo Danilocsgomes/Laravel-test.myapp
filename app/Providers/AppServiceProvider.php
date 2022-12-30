@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -17,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      //
     }
 
     /**
@@ -34,5 +35,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('validateString', function ($expression) {
             return gettype($expression) == 'string';
         });
+
+        Blade::component(Alert::class,'alert');
     }
 }

@@ -2,28 +2,19 @@
 
 {{--@inject('address', "APP\Service\Address")--}}
 
-@section('subtitle', 'Site')
+@section('subtitle', 'login')
 
-@section('sidebar')
-    @parent
-    <p>Items...</p>
-@endsection
+@section()
+    <form action="{{route('login')}}" method="post">
+        @csrf
+        <x-input type="email" id="email" name="email">
+            <x-slot name="label">E-mail</x-slot>
+        </x-input>
 
-@section('content')
-    @php
-    $label = 'Nome'
-    @endphp
+        <x-input type="password" id="password" name="password">
+            <x-slot name="label">Senha</x-slot>
+        </x-input>
 
-    <x-input type="text" name="name" id="name" :label="$label" />
-
-    <x-card>
-        <x-slot:header>
-            Header do card
-        </x-slot:header>
-        Conteúdo do card
-    </x-card>
-
-    <x-alert type="error">
-        Deu erro!
-    </x-alert>
+       <button>Entrar</button>
+    </form>
 @endsection
