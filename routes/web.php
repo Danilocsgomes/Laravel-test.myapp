@@ -29,8 +29,6 @@ use App\Http\Controllers\Controller;
 //Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/', [LoginController::class,'index'])->name('home');
-
-
 Route::post('login', [LoginController::class, 'store'])->name('login');
 Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 

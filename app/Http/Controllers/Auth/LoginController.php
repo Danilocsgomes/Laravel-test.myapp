@@ -10,9 +10,10 @@ class LoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only('destroy');
+        $this->middleware('auth')->only('destoy');
         $this->middleware('guest')->except('destroy');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +32,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
            'email' => 'required',
            'password' => 'required'
         ]);
@@ -56,7 +57,7 @@ class LoginController extends Controller
      */
     public function destroy(Request $request)
     {
-        $request ->session()->invalidate();
+        $request->session()->invalidate();
 
         Auth::logout();
     }
