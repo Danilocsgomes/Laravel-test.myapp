@@ -18,9 +18,16 @@ class UserController extends Controller
     }
     public function show(User $user)
     {
-        $user->load('teams');
-//        $user->teams()->attach(1);
-        return $user->teams;
+//        $team = Team::find(1);
+//        $user->load('teams');
+//        $team->users->attach(3);
+//        return $team;
+
+//      $user->teams()->attach([1, 2]);
+//        $user->teams()->sync([2, 3]);
+//        $user->teams()->syncWithoutDetaching([2, 3]);
+//        $user->teams()->detach([1, 2]);
+        return $user;
 
         return view('user', [
             'name' => 'Jonh Snow',

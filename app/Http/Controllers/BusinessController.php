@@ -9,11 +9,12 @@ class BusinessController extends Controller
 {
     public function index()
     {
-        \DB::connection()->enableQueryLog();
-        $business = Business::where('name','LIKE', '%Jon%')->get();
-        $query = \DB::getQueryLog();
-        dd($query);
-//      $business->delete();
-//      dd($business);
+        return view('businesses');
+//        \DB::connection()->enableQueryLog();
+//        $business = Business::where('name','LIKE', '%Jon%')->get();
+//        $query = \DB::getQueryLog();
+//        dd($query);
+//        $business->delete();
+//        dd($business);
     }
 }

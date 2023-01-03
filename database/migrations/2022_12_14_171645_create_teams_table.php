@@ -29,7 +29,6 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
-
         });
     }
 
