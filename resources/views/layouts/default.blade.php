@@ -15,7 +15,6 @@
         @show
 
         @hasSection('content')
-           <p> Mostrar esse conteúdo </p>
         @endif
 
         @sectionMissing('content')
